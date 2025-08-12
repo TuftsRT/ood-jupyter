@@ -19,7 +19,7 @@ script:
     - "<%= num_memory %>"
     - "--nodes"
     - "1"
-    <%- if gpu_partition == "preempt"-%>
+    <%- if partition == "preempt"-%>
     - "-p" 
     - "preempt"
         <%- if gpu_type == "a100_40" -%>
@@ -31,7 +31,7 @@ script:
         <%- else -%>
     - "--gres=gpu:<%= gpu_type %>:1"
         <%- end -%>
-    <%- elsif gpu_partition == "gpu" -%>
+    <%- elsif partition == "gpu" -%>
     - "-p"
     - "gpu"
         <%- if gpu_type == "a100_80" -%>
@@ -40,7 +40,7 @@ script:
         <%- else -%>
     - "--gres=gpu:<%= gpu_type %>:1"
         <%- end -%>
-    <%- elsif gpu_partition == "pettilab" -%>
+    <%- elsif partition == "pettilab" -%>
     - "-p"
     - "pettilab"
     - "--gres=gpu:l40:1"

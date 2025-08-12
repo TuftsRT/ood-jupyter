@@ -21,6 +21,7 @@ attributes:
       - [ "v100 - 16GB", "v100" ]
       - [ "A100 - 40GB", "a100_40" ]
       - [ "A100 - 80GB", "a100_80" ]
+      - [ "H200 - 140GB", "h200" ]
       - [ "T4 - 16GB", "t4" ]
       - [ "RTX 6000 - 24GB", "rtx_6000" ]
       - [ "RTX A6000 - 48GB", "rtx_a6000" ]     
@@ -44,21 +45,28 @@ attributes:
       - ["batch", "batch", data-hide-gpu-type: true]
     value: "batch"
     
+  working_directory:
+    widget: "text_field"
+    label: "Top Working Directory"
+    help: "Top working directory for your Jupyter session to access your notebooks and data. Default is your $HOME"
+    
+  mode:
+    widget: "radio"
+    value: "1"
+    options:
+      - ["Jupyter Lab", "1"]
+      - ["Jupyter Notebook", "0"]
 
   module:
     widget: text_field
     label: "Load Supporting Modules"
-    help: "ENTER module name ONLY.\n e.g. for \"module load cuda/12.2\" in command line, ENTER \"cuda/12.2\""
-  working_directory:
-    widget: "text_field"
-    label: "Top Working Directory"
-    help: "Top working directory for your Jupyter Notebook session to access your notebooks and data. If your files are stored in your lab directory, use \"/cluster/tufts/your_lab\" as the top working directory.Otherwise, you can use home directory \"/cluster/home/your_username\""
-    value: "/cluster/home/$USER"
+    help: "ENTER module name ONLY.\n e.g. for \"module load cuda/12.9\" in command line, ENTER \"cuda/12.2\""
     
 
 form:
   - conda_extensions
   - extra_jupyter_args
+  - mode
   - bc_num_hours
   - num_cores
   - num_memory
@@ -66,3 +74,4 @@ form:
   - gpu_type
   - working_directory
   - module
+
