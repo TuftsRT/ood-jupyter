@@ -5,8 +5,6 @@ subcategory: Servers
 role: batch_connect
 description: |
   This app will launch a [Jupyter] server using [Python] on Tufts HPC.
-  Resources are sized for most purposes. Email email tts-research@tufts.edu if 
-  larger capacity is needed.
 
   [Jupyter]: https://jupyter.org/
   [Python]: https://www.python.org/
