@@ -30,6 +30,8 @@ module purge
 module load jupyter
 module load <%= context.module %>
 module list
+export SINGULARITY_BIND="/cluster/tufts${SINGULARITY_BIND:+,$SINGULARITY_BIND}"
+export APPTAINER_BIND="/cluster/tufts${APPTAINER_BIND:+,$APPTAINER_BIND}"
 
 # List available kernels for debugging purposes
 set -x
