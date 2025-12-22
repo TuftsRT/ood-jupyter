@@ -27,7 +27,8 @@ cd $workdir
 module purge
 
 # Load the require modules
-# module load jupyter
+module load jupyter
+module load pandoc
 module load <%= context.module %>
 module list
 export SINGULARITY_BIND="/cluster/tufts${SINGULARITY_BIND:+,$SINGULARITY_BIND}"
@@ -41,4 +42,4 @@ echo "TTT - $(date)"
 
 # Launch the Jupyter server
 set -x
-/cluster/tufts/apps/manual/9/x86_64/jupyter/4.5.0/bin/jupyter <%= context.mode == "1" ? 'lab' : 'notebook' %> --config="${CONFIG_FILE}"
+jupyter <%= context.mode == "1" ? 'lab' : 'notebook' %> --config="${CONFIG_FILE}"
