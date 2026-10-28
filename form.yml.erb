@@ -1,7 +1,8 @@
 ---
 <%
 @partition_filter = :all
-_partial_path = '/etc/ood/config/apps/dashboard/batch_connect/partials/resource_discovery.erb'
+@partition_qos_path = '/cluster/home/ymalon01/ondemand/prod/ood-resource-discovery/partition_qos.rb'
+_partial_path = '/cluster/home/ymalon01/ondemand/prod/ood-resource-discovery/resource_discovery.erb'
 _resource_result = ERB.new(File.read(_partial_path)).result(binding)
 %>
 cluster: "pax"
